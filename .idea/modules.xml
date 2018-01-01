@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Angular/Angular.iml" filepath="$PROJECT_DIR$/Angular/Angular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibraryWebApp.iml" filepath="$PROJECT_DIR$/LibraryWebApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring/Spring.iml" filepath="$PROJECT_DIR$/Spring/Spring.iml" />
+    </modules>
+  </component>
+</project>
