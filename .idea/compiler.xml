@@ -10,8 +10,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LibraryWebApp" target="1.5" />
-      <module name="Spring" target="1.5" />
+      <module name="LibraryWebApp" target="1.8" />
+      <module name="Spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
