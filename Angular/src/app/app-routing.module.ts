@@ -5,7 +5,7 @@ import {BookStorageManagementComponent} from "./book-storage-management/book-sto
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes :Routes = [
-  { path: "bookstoragemanagement", component: BookStorageManagementComponent },
+  { path: "book-storage-management", component: BookStorageManagementComponent },
   { path: "", component: DashboardComponent, pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
 ]
