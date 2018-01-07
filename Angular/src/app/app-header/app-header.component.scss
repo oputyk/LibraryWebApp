@@ -1,3 +1,16 @@
 .brand {
   color: coral;
+  font-size: 1.7em;
+}
+
+.brand:hover {
+  @extend .brand;
+}
+
+.brand:active {
+  @extend .brand;
+}
+
+.brand:visited {
+  @extend .brand;
 }
