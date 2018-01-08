@@ -8,6 +8,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookStorageManagementComponent } from './book-storage-management/book-storage-management.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BookTableComponent } from './book-storage-management/book-table/book-table.component';
+import { BookStorageService } from "./api/services/book-storage/book-storage.service";
+import {BookStorageManagementModule} from "./book-storage-management/book-storage-management.module";
 
 
 @NgModule({
@@ -16,14 +19,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppFooterComponent,
     AppHeaderComponent,
     DashboardComponent,
-    BookStorageManagementComponent,
     PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BookStorageManagementModule
   ],
-  providers: [],
+  providers: [
+    BookStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

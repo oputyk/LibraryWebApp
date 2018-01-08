@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Złodziejka Książek",
+    "author": "Markus Zusak",
+    "count": 2
+  },
+  {
+    "id": 1,
+    "name": "Harry Potter Czara Ognia",
+    "author": "J. K. Rowling",
+    "count": 1
+  },
+  {
+    "id": 2,
+    "name": "Harry Potter Więzień Azkabanu",
+    "author": "J. K. Rowling",
+    "count": 4
+  },
+  {
+    "id": 3,
+    "name": "Harry Potter Kamień Filozoficzny",
+    "author": "J. K. Rowling",
+    "count": 0
+  }
+]
