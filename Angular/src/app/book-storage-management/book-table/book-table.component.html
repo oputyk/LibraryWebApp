@@ -8,11 +8,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books">
-      <th scope="row">{{ book.id }}</th>
-      <td>{{ book.name }}</td>
-      <td>{{ book.author }}</td>
-      <td>{{ book.count }}</td>
-    </tr>
+  <tr *ngFor="let book of books" app-book-row [book]="book"></tr>
   </tbody>
 </table>

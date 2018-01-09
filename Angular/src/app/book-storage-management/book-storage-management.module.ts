@@ -5,6 +5,7 @@ import {BookTableComponent} from "./book-table/book-table.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {ApiModule} from "../api/api.module";
 import {BookStorageService} from "../api/services/book-storage/book-storage.service";
+import { BookRowComponent } from './book-row/book-row.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {BookStorageService} from "../api/services/book-storage/book-storage.serv
   ],
   declarations: [
     BookStorageManagementComponent,
-    BookTableComponent
+    BookTableComponent,
+    BookRowComponent
   ]
 })
 export class BookStorageManagementModule { }
