@@ -12,10 +12,9 @@ export class BookTableComponent implements OnInit {
 
   books :Book[];
 
-  constructor(private bookStorageService: BookStorageService) { }
+  constructor(private bookStorageService: BookStorageService) {   }
 
   ngOnInit(): void {
     this.bookStorageService.getAllBooks().subscribe(books => this.books = books);
   }
-
 }

@@ -20,6 +20,7 @@ public class BookStorageController {
         books.add(new Book(0, "Złodziejka książek", "Markus Zusak", 2));
         books.add(new Book(1, "Harry Potter Czara Ognia", "J. K. Rowling", 1));
         books.add(new Book(2, "Harry Potter Więzień Azkabanu", "J. K. Rowling", 4));
+        books.add(new Book(3, "Harry Potter Książe Półkrwi", "J. K. Rowling", 3));
 
         return books;
     }

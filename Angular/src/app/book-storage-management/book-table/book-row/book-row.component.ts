@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Book} from "../../api/models/book.model";
+import {Book} from "../../../api/models/book.model";
 
 @Component({
   selector: '[app-book-row]',
@@ -13,6 +13,10 @@ export class BookRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  editBook(event: Event): void {
+
   }
 
 }
