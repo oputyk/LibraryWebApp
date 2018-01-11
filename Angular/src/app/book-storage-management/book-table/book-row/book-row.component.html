@@ -1,5 +1,23 @@
-<th scope="row">{{ book.id }}</th>
-<td>{{ book.name }}</td>
-<td>{{ book.author }}</td>
-<td>{{ book.count }}</td>
-<td><button (click)="editBook($event)" type="button" class="btn btn-primary">Edit book</button></td>
+<div *ngIf="!editMode; then bookDetailsTemplate else bookEditTemplate"></div>
+
+<ng-template #bookDetailsTemplate>
+  <th scope="row">{{ bookDto.id }}</th>
+  <td>{{ bookDto.name }}</td>
+  <td>{{ bookDto.author }}</td>
+  <td>{{ bookDto.count }}</td>
+  <td><button (click)="editBook($event)" type="button" class="btn btn-primary">Edit bookDto</button></td>
+</ng-template>
+
+<ng-template #bookEditTemplate>
+  <th scope="row">{{ bookDto.id }}</th>
+  <td>
+    <input type="text" id="bookName" name="bookName" [(ngModel)]="bookDto.name" required/>
+  </td>
+  <td>
+    <input type="text" id="bookAuthor" name="bookAuthor" [(ngModel)]="bookDto.author" required/>
+  </td>
+  <td>
+    <input type="number" id="bookCount" name="bookCount" [(ngModel)]="bookDto.count" required/>
+  </td>
+  <td><button (click)="saveBook($event)" type="button" class="btn btn-primary">Save bookDto</button></td>
+</ng-template>

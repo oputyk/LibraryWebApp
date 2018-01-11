@@ -12,4 +12,9 @@ export class BookStorageService {
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>("api/book-storage");
   }
+
+  editBook(book: Book): Observable<Book> {
+    return this.http.post<Book>("api/book-storage/edit-book", book);
+  }
+
 }
