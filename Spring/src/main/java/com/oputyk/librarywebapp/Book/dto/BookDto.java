@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class BookDto {
-    private int id;
+    private Long id;
     private String name;
     private String author;
-    private int count;
+    private Long count;
 }

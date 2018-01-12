@@ -10,7 +10,7 @@ export class BookStorageService {
   constructor(private http: HttpClient) {  }
 
   getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>("api/book-storage");
+    return this.http.get<Book[]>("api/book-storage/all");
   }
 
   editBook(book: Book): Observable<Book> {

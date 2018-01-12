@@ -68,6 +68,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:4.3.13.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.44" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
   </component>
 </module>

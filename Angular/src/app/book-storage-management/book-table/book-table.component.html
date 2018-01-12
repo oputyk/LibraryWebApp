@@ -1,4 +1,4 @@
-<table *ngIf="bookDtos" class="table">
+<table *ngIf="books" class="table">
   <thead class="thead-default">
     <tr>
       <th>ID</th>
@@ -8,6 +8,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let bookDto of bookDtos" app-bookDto-row [bookDto]="bookDto"></tr>
+    <tr *ngFor="let book of books" app-book-row [book]="book"></tr>
   </tbody>
 </table>

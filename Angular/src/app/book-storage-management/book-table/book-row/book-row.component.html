@@ -1,23 +1,23 @@
 <div *ngIf="!editMode; then bookDetailsTemplate else bookEditTemplate"></div>
 
 <ng-template #bookDetailsTemplate>
-  <th scope="row">{{ bookDto.id }}</th>
-  <td>{{ bookDto.name }}</td>
-  <td>{{ bookDto.author }}</td>
-  <td>{{ bookDto.count }}</td>
-  <td><button (click)="editBook($event)" type="button" class="btn btn-primary">Edit bookDto</button></td>
+  <th scope="row">{{ book.id }}</th>
+  <td>{{ book.name }}</td>
+  <td>{{ book.author }}</td>
+  <td>{{ book.count }}</td>
+  <td><button (click)="editBook($event)" type="button" class="btn btn-primary">Edit book</button></td>
 </ng-template>
 
 <ng-template #bookEditTemplate>
-  <th scope="row">{{ bookDto.id }}</th>
+  <th scope="row">{{ book.id }}</th>
   <td>
-    <input type="text" id="bookName" name="bookName" [(ngModel)]="bookDto.name" required/>
+    <input type="text" id="bookName" name="bookName" [(ngModel)]="book.name" required/>
   </td>
   <td>
-    <input type="text" id="bookAuthor" name="bookAuthor" [(ngModel)]="bookDto.author" required/>
+    <input type="text" id="bookAuthor" name="bookAuthor" [(ngModel)]="book.author" required/>
   </td>
   <td>
-    <input type="number" id="bookCount" name="bookCount" [(ngModel)]="bookDto.count" required/>
+    <input type="number" id="bookCount" name="bookCount" [(ngModel)]="book.count" required/>
   </td>
-  <td><button (click)="saveBook($event)" type="button" class="btn btn-primary">Save bookDto</button></td>
+  <td><button (click)="saveBook($event)" type="button" class="btn btn-primary">Save book</button></td>
 </ng-template>
