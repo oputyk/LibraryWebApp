@@ -1,6 +1,6 @@
 package com.oputyk.librarywebapp.Book;
 
-import com.oputyk.librarywebapp.Book.domain.BookRepository;
+import com.oputyk.librarywebapp.Book.domain.BookFacade;
 import com.oputyk.librarywebapp.Book.dto.BookDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,18 +14,17 @@ import java.util.List;
  * Created by kamil on 01/01/2018.
  */
 @RestController()
-@RequestMapping("api")
+@RequestMapping("api/book/")
 public class BookController {
-
     @Autowired
-    BookRepository bookRepository;
+    BookFacade bookFacade;
 
-    @RequestMapping("/book-storage/all")
+    @RequestMapping("all-books")
     public List<BookDto> getAllBooks() {
-        return bookRepository.getAll();
+
     }
 
-    @RequestMapping(value = "/book-storage/edit-book", method = RequestMethod.POST)
+    @RequestMapping(value = "edit-book", method = RequestMethod.POST)
     public BookDto editBook(@RequestBody BookDto bookDto) {
         return bookDto;
     }
