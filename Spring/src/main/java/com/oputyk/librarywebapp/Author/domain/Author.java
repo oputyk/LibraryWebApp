@@ -1,5 +1,7 @@
 package com.oputyk.librarywebapp.Author.domain;
 
+import com.oputyk.librarywebapp.Author.dto.AuthorMaxInfoDto;
+import com.oputyk.librarywebapp.Author.dto.AuthorMinInfoDto;
 import com.oputyk.librarywebapp.Book.domain.Book;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,11 +24,9 @@ public class Author {
     private String firstName;
     private String lastName;
     private Integer age;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
-                joinColumns = @JoinColumn(name = "author_id"),
-                inverseJoinColumns = @JoinColumn(name = "author_id"))
+                joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
     private List<Book> books;
-
-
 }
