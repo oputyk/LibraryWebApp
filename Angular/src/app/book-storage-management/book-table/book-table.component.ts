@@ -15,6 +15,6 @@ export class BookTableComponent implements OnInit {
   constructor(private bookStorageService: BookStorageService) {   }
 
   ngOnInit(): void {
-    this.bookStorageService.getAllBooks().subscribe(books => this.books = books);
+    this.bookStorageService.getAllBooksMaxInfo().subscribe(books => this.books = books);
   }
 }

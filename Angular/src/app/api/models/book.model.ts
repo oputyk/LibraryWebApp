@@ -4,6 +4,7 @@ import {Author} from "./author.model";
  */
 export interface Book {
   id: number;
+  isbn: number;
   name: string;
   authors: Author[];
 }

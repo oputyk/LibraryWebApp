@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from "../../../api/models/book.model";
 import {BookStorageService} from "../../../api/services/book-storage/book-storage.service";
+import {Author} from "../../../api/models/author.model";
 
 @Component({
   selector: '[app-book-row]',
@@ -11,7 +12,6 @@ export class BookRowComponent implements OnInit {
 
   @Input("book") book: Book;
   editMode: boolean;
-  message: string;
 
   constructor(private bookStorageService: BookStorageService) {
     this.editMode = false;
@@ -25,8 +25,9 @@ export class BookRowComponent implements OnInit {
   }
 
   saveBook(event: Event): void {
-    this.bookStorageService.editBook(this.book).subscribe((book: Book) => {
+    this.bookStorageService.editBookMaxInfo(this.book).subscribe((book: Book) => {
       this.editMode = !(book != null);
+      this.book.name = book.name;
     });
   }
 }

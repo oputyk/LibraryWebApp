@@ -32,7 +32,7 @@ public class BookController {
 
     @RequestMapping(value = "update-max-info", method = RequestMethod.POST)
     public BookMaxInfoDto editBook(@RequestBody BookMaxInfoDto bookMaxInfoDto) {
-        return bookMaxInfoDto;
+        return bookFacade.updateBookMaxInfo(bookMaxInfoDto);
     }
 
     @RequestMapping(value = "update-min-info", method = RequestMethod.POST)

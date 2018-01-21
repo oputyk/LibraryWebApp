@@ -9,12 +9,12 @@ export class BookStorageService {
 
   constructor(private http: HttpClient) {  }
 
-  getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>("api/book-storage/all");
+  getAllBooksMaxInfo(): Observable<Book[]> {
+    return this.http.get<Book[]>("api/book/all-max-info");
   }
 
-  editBook(book: Book): Observable<Book> {
-    return this.http.post<Book>("api/book-storage/edit-book", book);
+  editBookMaxInfo(book: Book): Observable<Book> {
+    return this.http.post<Book>("api/book/update-max-info", book);
   }
 
 }
