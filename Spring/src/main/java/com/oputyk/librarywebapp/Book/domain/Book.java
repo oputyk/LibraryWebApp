@@ -28,6 +28,7 @@ public class Book {
     private Long id;
     private Long isbn;
     private String name;
-    @ManyToMany(mappedBy = "books", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "books", fetch = FetchType.LAZY, cascade =
+            {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Author> authors;
 }

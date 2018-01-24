@@ -1,0 +1,7 @@
+<div class="list-group">
+  <label *ngFor="let author of authors; let i = index;" class="btn-primary list-group-item" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="authorsChecked[i]">
+    {{ author.firstName + " " + author.lastName }}
+  </label>
+  <button (click)="save()" class="btn-outline-secondary list-group-item save">Save</button>
+</div>

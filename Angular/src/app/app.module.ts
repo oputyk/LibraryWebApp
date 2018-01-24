@@ -12,7 +12,6 @@ import { BookTableComponent } from './book-storage-management/book-table/book-ta
 import { BookStorageService } from "./api/services/book-storage/book-storage.service";
 import {BookStorageManagementModule} from "./book-storage-management/book-storage-management.module";
 
-
 @NgModule({
   declarations: [
     AppComponent,

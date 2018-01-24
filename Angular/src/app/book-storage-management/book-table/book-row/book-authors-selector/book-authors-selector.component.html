@@ -1,0 +1,5 @@
+<button class="btn btn-outline-primary" (click)="open()">
+  <span *ngFor="let author of book.authors; let last = last">
+      {{ author.firstName + " " + author.lastName }}<span *ngIf="!last">, </span>
+  </span>
+</button>

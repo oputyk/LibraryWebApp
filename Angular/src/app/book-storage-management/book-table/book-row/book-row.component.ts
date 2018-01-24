@@ -30,4 +30,8 @@ export class BookRowComponent implements OnInit {
       this.book.name = book.name;
     });
   }
+
+  bookChange(event: Book): void {
+    this.book = event;
+  }
 }

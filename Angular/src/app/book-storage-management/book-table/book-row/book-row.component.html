@@ -19,9 +19,7 @@
     <input type="text" id="bookName" name="bookName" [(ngModel)]="book.name" required/>
   </td>
   <td>
-    <span *ngFor="let author of book.authors; let last = last">
-      <a href="#">{{ author.firstName + " " + author.lastName }}</a><span *ngIf="!last">, </span>
-    </span>
+    <app-book-authors-selector [book]="book" (bookChange)="bookChange($event)"></app-book-authors-selector>
   </td>
   <td>
     <button (click)="saveBook($event)" type="button" class="btn btn-primary">Save book</button>
