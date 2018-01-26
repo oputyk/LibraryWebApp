@@ -21,8 +21,12 @@ export class BookStorageService {
     return this.http.post<Book>("api/book/update-max-info", book);
   }
 
-  changeBookAuthors(bookId: number, authorsIds: number[]): Observable<number[]> {
-    return this.http.post<number[]>(`api/book/${bookId}/change-authors`, authorsIds);
+  addBookMaxInfo(book: Book): Observable<Book> {
+    return this.http.post<Book>("api/book/add-max-info", book);
+  }
+
+  deleteBook(bookId: number): Observable<number> {
+    return this.http.delete<number>(`api/book/${bookId}`);
   }
 
 }

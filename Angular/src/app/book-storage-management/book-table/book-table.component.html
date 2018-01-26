@@ -4,9 +4,11 @@
       <th>ID</th>
       <th>Book name</th>
       <th>Authors</th>
+      <th>ISBN</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books" app-book-row [book]="book"></tr>
+    <tr *ngFor="let book of books" app-book-row [book]="book" (removedBook)="removedBook($event)"></tr>
   </tbody>
 </table>
+<button (click)="addBook($event)" class="btn btn-outline-primary btn-lg float-lg-right add-book">Add book</button>

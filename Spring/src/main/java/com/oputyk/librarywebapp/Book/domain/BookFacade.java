@@ -2,6 +2,7 @@ package com.oputyk.librarywebapp.Book.domain;
 
 import com.oputyk.librarywebapp.Author.domain.Author;
 import com.oputyk.librarywebapp.Author.domain.AuthorRepository;
+import com.oputyk.librarywebapp.Author.dto.AuthorMinInfoDto;
 import com.oputyk.librarywebapp.Book.dto.BookMaxInfoDto;
 import com.oputyk.librarywebapp.Book.dto.BookMinInfoDto;
 import org.modelmapper.ModelMapper;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,20 +50,41 @@ public class BookFacade {
 
     public BookMaxInfoDto updateBookMaxInfo(BookMaxInfoDto bookMaxInfoDto) {
         Book book = bookRepository.findBookById(bookMaxInfoDto.getId());
+        changeBookMinInfoAuthors(book, bookMaxInfoDto.getAuthors());
         book = bookMaxInfoDto.updateEntity(book);
 
         return bookMaxInfoDto;
     }
 
-    public List<Long> changeBookAuthors(Long bookId, List<Long> authorsIds) {
-        Book book = bookRepository.findBookById(bookId);
-        book.getAuthors().forEach(author -> author.getBooks().remove(book));
-        List<Author> authors = authorsIds.stream()
-                .map(authorId -> authorRepository.findAuthorById(authorId))
+    public BookMaxInfoDto addBookMaxInfo(BookMaxInfoDto bookMaxInfoDto) {
+        Book book = modelMapper.map(bookMaxInfoDto, Book.class);
+        changeBookMinInfoAuthors(book, bookMaxInfoDto.getAuthors());
+        bookRepository.save(book);
+        bookMaxInfoDto.setId(bookRepository.findTheLastBookId());
+
+        return bookMaxInfoDto;
+    }
+
+    private void changeBookMinInfoAuthors(Book book, List<AuthorMinInfoDto> authorMinInfoDtos) {
+        if(book.getAuthors() != null) {
+            book.getAuthors().forEach(author -> {
+                if(author.getBooks() != null) {
+                    author.getBooks().remove(book);
+                }
+            });
+        }
+        List<Author> authors = authorMinInfoDtos.stream()
+                .map(author-> authorRepository.findAuthorById(author.getId()))
                 .collect(Collectors.toList());
         authors.forEach(author -> author.getBooks().add(book));
         book.setAuthors(authors);
+    }
 
-        return authorsIds;
+    public Long deleteBookById(Long bookId) {
+        Book book = bookRepository.findBookById(bookId);
+        book.getAuthors().forEach(author -> author.getBooks().remove(book));
+        bookRepository.deleteBookById(bookId);
+
+        return bookId;
     }
 }

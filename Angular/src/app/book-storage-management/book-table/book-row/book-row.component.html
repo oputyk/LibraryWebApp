@@ -1,27 +1,39 @@
 <div *ngIf="!editMode; then bookDetailsTemplate else bookEditTemplate"></div>
 
 <ng-template #bookDetailsTemplate>
-  <th scope="row">{{ book.id }}</th>
+  <th scope="row"><span  *ngIf="book.id > 0">{{ book.id }}</span></th>
   <td>{{ book.name }}</td>
   <td>
     <span *ngFor="let author of book.authors; let last = last">
       <a href="#">{{ author.firstName + " " + author.lastName }}</a><span *ngIf="!last">, </span>
     </span>
   </td>
+  <td>{{ book.isbn }}</td>
   <td>
-    <button (click)="editBook($event)" type="button" class="btn btn-primary">Edit book</button>
+    <div class="float-right">
+      <button (click)="editBook($event)" type="button" class="btn btn-primary">Edit book</button>
+      <button (click)="deleteBook($event)" type="button" class="btn btn-danger">Delete book</button>
+    </div>
   </td>
 </ng-template>
 
 <ng-template #bookEditTemplate>
-  <th scope="row">{{ book.id }}</th>
+  <th scope="row"><span  *ngIf="book.id > 0">{{ book.id }}</span></th>
   <td>
-    <input type="text" id="bookName" name="bookName" [(ngModel)]="book.name" required/>
+    <input name="bookName" [(ngModel)]="book.name" required/>
   </td>
   <td>
     <app-book-authors-selector [book]="book" (bookChange)="bookChange($event)"></app-book-authors-selector>
   </td>
   <td>
-    <button (click)="saveBook($event)" type="button" class="btn btn-primary">Save book</button>
+    <input name="bookIsbn" type="number" [(ngModel)]="book.isbn" required/>
+  </td>
+  <td>
+    <div class="float-right">
+      <button *ngIf="!isBookEmpty()" (click)="saveBook($event)" type="button" class="btn btn-primary" >Save book</button>
+      <button *ngIf="isBookEmpty()" (click)="saveBook($event)" type="button" class="btn btn-primary" [ngbTooltip]="inputError" triggers="click:blur">Save book</button>
+      <button (click)="deleteBook($event)" type="button" class="btn btn-danger">Delete book</button>
+      <ng-template #inputError>Input error</ng-template>
+    </div>
   </td>
 </ng-template>

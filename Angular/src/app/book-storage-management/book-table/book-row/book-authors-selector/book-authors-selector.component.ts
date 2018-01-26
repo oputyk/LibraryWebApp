@@ -16,18 +16,14 @@ export class BookAuthorsSelectorComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private bookService: BookStorageService) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   open() {
     const modalRef = this.modalService.open(BookAuthorsModalComponent);
     modalRef.componentInstance.book = this.book;
     modalRef.result.then(value => {
-      this.bookService.getBookMaxInfo(this.book.id).subscribe(book => {
-        this.book = book
-        this.bookChange.emit(book);
-      });
+      this.book = value;
+      this.bookChange.emit(this.book);
     });
   }
 

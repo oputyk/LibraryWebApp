@@ -2,4 +2,5 @@
   <span *ngFor="let author of book.authors; let last = last">
       {{ author.firstName + " " + author.lastName }}<span *ngIf="!last">, </span>
   </span>
+  <span *ngIf="book.authors.length == 0">Choose authors</span>
 </button>

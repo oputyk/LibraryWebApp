@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BookTableComponent } from './book-storage-management/book-table/book-table.component';
 import { BookStorageService } from "./api/services/book-storage/book-storage.service";
 import {BookStorageManagementModule} from "./book-storage-management/book-storage-management.module";
+import { BookStorageComponent } from './book-storage/book-storage.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {BookStorageManagementModule} from "./book-storage-management/book-storag
     AppHeaderComponent,
     DashboardComponent,
     PageNotFoundComponent,
+    BookStorageComponent,
   ],
   imports: [
     BrowserModule,

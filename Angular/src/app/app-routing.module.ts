@@ -3,8 +3,10 @@ import {RouterModule, Routes} from "@angular/router";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {BookStorageManagementComponent} from "./book-storage-management/book-storage-management.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {BookStorageComponent} from "./book-storage/book-storage.component";
 
 const routes :Routes = [
+  { path: "book-storage", component: BookStorageComponent },
   { path: "book-storage-management", component: BookStorageManagementComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "", redirectTo: "dashboard", pathMatch: "full" },

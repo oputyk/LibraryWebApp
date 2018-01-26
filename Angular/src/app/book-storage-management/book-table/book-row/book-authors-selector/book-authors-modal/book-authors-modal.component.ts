@@ -16,7 +16,6 @@ export class BookAuthorsModalComponent implements OnInit {
   authorsChecked: boolean[] = [];
   authors: Author[];
   constructor(private authorService: AuthorService,
-              private bookService: BookStorageService,
               private modal: NgbActiveModal ) { }
 
   ngOnInit() {
@@ -27,28 +26,23 @@ export class BookAuthorsModalComponent implements OnInit {
   }
 
   save() {
-    this.bookService.changeBookAuthors(this.book.id, this.getAuthorsIds()).subscribe(ok => {
-        if(ok != null) {
-          this.modal.close();
-        }
+    this.book.authors = this.getCheckedAuthors();
+    this.modal.close(this.book);
+  }
+
+  getCheckedAuthors(): Author[] {
+    let authors: Author[] = [];
+    for(let i: number = 0; i < this.authors.length; i++) {
+      if(this.authorsChecked[i]) {
+        authors.push(this.authors[i]);
       }
-    );
+    }
+    return authors;
   }
 
   fillAuthorsChecked() {
     for(let author of this.authors) {
       this.authorsChecked.push(this.book.authors.find(authr => authr.id == author.id) != undefined);
     }
-  }
-
-  getAuthorsIds() {
-    let authorsIds: number[] = [];
-    for(let i: number = 0; i < this.authorsChecked.length; i++) {
-      if(this.authorsChecked[i]) {
-        authorsIds.push(this.authors[i].id);
-      }
-    }
-
-    return authorsIds;
   }
 }

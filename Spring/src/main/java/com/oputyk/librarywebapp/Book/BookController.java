@@ -1,5 +1,6 @@
 package com.oputyk.librarywebapp.Book;
 
+import com.oputyk.librarywebapp.Book.domain.Book;
 import com.oputyk.librarywebapp.Book.domain.BookFacade;
 import com.oputyk.librarywebapp.Book.dto.BookMaxInfoDto;
 import com.oputyk.librarywebapp.Book.dto.BookMinInfoDto;
@@ -37,14 +38,19 @@ public class BookController {
         return bookFacade.updateBookMaxInfo(bookMaxInfoDto);
     }
 
-    @RequestMapping(value = "update-min-info", method = RequestMethod.POST)
+    @PostMapping(value = "update-min-info")
     public BookMinInfoDto editBook(@RequestBody BookMinInfoDto bookMinInfoDto) {
         return bookMinInfoDto;
     }
 
-
-    @RequestMapping(value = "{bookId}/change-authors", method = RequestMethod.POST)
-    public List<Long> changeBookAuthors(@PathVariable Long bookId, @RequestBody List<Long> authorsIds) {
-        return bookFacade.changeBookAuthors(bookId, authorsIds);
+    @PostMapping("add-max-info")
+    public BookMaxInfoDto addBookMaxInfo(@RequestBody BookMaxInfoDto bookMaxInfoDto) {
+        return bookFacade.addBookMaxInfo(bookMaxInfoDto);
     }
+
+    @DeleteMapping("{bookId}")
+    public Long deleteBook(@PathVariable Long bookId) {
+        return bookFacade.deleteBookById(bookId);
+    }
+
 }
