@@ -25,7 +25,7 @@ public class Author {
     private String lastName;
     private Integer age;
     @ManyToMany(fetch = FetchType.LAZY, cascade =
-            {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
+            {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinTable(name = "author_book",
                 joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
                 inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))

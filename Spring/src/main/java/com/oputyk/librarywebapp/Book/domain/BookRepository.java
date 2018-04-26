@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by kamil on 11/01/2018.
  */
-@Transactional
+
 public interface BookRepository extends JpaRepository<Book, Long> {
     @Transactional(readOnly = true)
     List<Book> findAll();
@@ -21,5 +21,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query(value = "SELECT book.id FROM book ORDER BY id DESC LIMIT 1", nativeQuery = true)
     Long findTheLastBookId();
 
+    @Transactional
     void deleteBookById(Long id);
 }

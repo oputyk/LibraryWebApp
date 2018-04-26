@@ -2,6 +2,7 @@ package com.oputyk.librarywebapp.Book;
 
 import com.oputyk.librarywebapp.Book.domain.Book;
 import com.oputyk.librarywebapp.Book.domain.BookFacade;
+import com.oputyk.librarywebapp.Book.domain.BookRepository;
 import com.oputyk.librarywebapp.Book.dto.BookMaxInfoDto;
 import com.oputyk.librarywebapp.Book.dto.BookMinInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,17 @@ import java.util.List;
 /**
  * Created by kamil on 01/01/2018.
  */
-@RestController()
+@RestController
 @RequestMapping("api/book/")
 public class BookController {
+    private final BookFacade bookFacade;
+    private final BookRepository bookRepository;
+
     @Autowired
-    private BookFacade bookFacade;
+    public BookController(BookFacade bookFacade, BookRepository bookRepository) {
+        this.bookFacade = bookFacade;
+        this.bookRepository = bookRepository;
+    }
 
     @RequestMapping("all-min-info")
     public List<BookMinInfoDto> getAllBooksMinInfo() {

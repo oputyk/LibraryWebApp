@@ -17,8 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping("api/author/")
 public class AuthorController {
+    private final AuthorFacade authorFacade;
+
     @Autowired
-    private AuthorFacade authorFacade;
+    public AuthorController(AuthorFacade authorFacade) {
+        this.authorFacade = authorFacade;
+    }
 
     @RequestMapping("all-max-info")
     public List<AuthorMaxInfoDto> getAllAuthorsMaxInfo() {
